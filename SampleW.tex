@@ -1,0 +1,130 @@
+\documentclass[twocolumn, 10ptj, dvipdfmx]{jsarticle}
+% タイトル部分の微調整
+\makeatletter
+\def\@maketitle{%
+  \newpage\null
+  \vskip 1.08em
+  \begin{center}%
+    \let\footnote\thanks
+    {\@title \par}%
+    \vskip 1.36em
+    {\large
+      \lineskip .5em
+      \begin{tabular}[t]{c}%
+        \@author
+      \end{tabular}\par}%
+    % \vskip 1em
+    % {\large \@date}%
+  \end{center}%
+  \par\vskip 0.92em
+  \ifvoid\@abstractbox\else\centerline{\box\@abstractbox}\vskip1.5em\fi
+}
+\def\mojiparline#1{
+    \newcounter{mpl}
+    \setcounter{mpl}{#1}
+    \@tempdima=\linewidth
+    \advance\@tempdima by-\value{mpl}zw
+    \addtocounter{mpl}{-1}
+    \divide\@tempdima by \value{mpl}
+    \advance\kanjiskip by\@tempdima
+    \advance\parindent by\@tempdima
+}
+\makeatother
+\def\linesparpage#1{
+    \baselineskip=\textheight
+    \divide\baselineskip by #1
+}
+\usepackage[dvipdfm]{geometry}
+\geometry{top=20truemm, bottom=25truemm, left=20truemm, right=20truemm}
+\pagestyle{empty}
+% 以上設定
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 使用パッケージ
+%
+% 色つける
+\usepackage{xcolor}
+% 文字幅を固定幅にする
+\usepackage{pxmonja}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ここを編集
+\newcommand{\TITLE}{日本語タイトル（フォントサイズは14pt）}
+\newcommand{\ETITLE}{English title (Font size is 12pt)}
+\newcommand{\NUMBER}{MF16000}
+\newcommand{\NAME}{シス理\quad{}太郎}
+\newcommand{\MAJOR}{○○○○○○○○研究}
+\newcommand{\TEACHER}{芝浦\quad{}工太郎}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 設定
+\makeatletter
+\title{{\textbf{\fontsize{14truept}{3pt}\selectfont\TITLE\\[10.0truept]{}%
+\fontsize{12truept}{\n@baseline}\selectfont\ETITLE}}}
+\author{{\fontsize{12truept}{\n@baseline}\selectfont
+\begin{tabular}{p{16.0em}rl}
+  システム理工学専攻 & \NUMBER & \NAME \\
+  \MAJOR & 指導教員(担当教員) & \TEACHER
+\end{tabular}
+}}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+% 文字サイズ, 幅の調整
+\fontsize{10truept}{15.4truept}\selectfont
+\mojiparline{20}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% ここから本文
+\noindent
+これより本文．本文は2段組構成．\\
+(2016年11月9日版)．
+\\[\Cvs]
+以下に基本設定を示す．この雛形は基本設定に則っている．
+これを目安に資料を作成のこと．
+\quad{}LaTeX\hspace{0.4zw} 等を用いる場合もこの設定を参考に作成のこと．
+\\[\Cvs]
+= 基本設定 =\\
+\hspace{-1.0zw}
+\begin{tabular}{lp{13.5zw}}
+  $<$フォント(目安)$>$ &\\
+  フォント種類： & 全角は MS 明朝体，あるいは MS ゴシック体等．半角は Century，Times New Roman 等．\\
+  フォントサイズ： & タイトルは 14pt（英文タイトル12pt）．学籍番号，氏名等は 12pt．本文は 10pt．\\
+  $<$文字数(目安)$>$ &\\
+  文字数： & 1段1行あたり，20文字．\\
+  行数： & 1ページ目，37行 \\
+  & 2ページ目，45行 \\
+  $<$余白$>$ &\\
+  上，左，右： & 20mm \\
+  下： & 25mm
+\end{tabular}
+%
+\\[\Cvs]
+$<$その他指定事項$>$
+\vspace{-1zw}
+\begin{itemize}
+  \item 「日本語タイトル行」，「英語タイトル行」ともに，センタリング，かつ太文字．
+  \item 「英語タイトル行」と「学籍番号・氏名行」との間は改行．
+  \item 「学籍番号・氏名行」と「本文」との間は改行．
+  \item 「学籍番号」は半角とし，アルファベットは大文字．
+  \item 「氏名」は全角とし，姓と名の間は1スペース空ける．
+\end{itemize}
+\newpage~
+\\
+$<$概要の構成例$>$\\
+\color{red}\bfseries
+１．要約{\fontsize{8truept}{16}\selectfont (Abstract)}：英語{\fontsize{8truept}{16}\selectfont (English)(Font size: 8pt, Bold)
+： 日本人入学学生は英語で書くこと．外国語入学学生は，可能ならば日本語で書くこと．}\\[0.2em]
+\color{black}\mdseries%
+２．研究背景， 意義， 研究目的など\\
+３．本論 （方法，結果，考察）\\
+４．まとめ，結論 （得られたこと，今後の課題）\\
+参考文献 \#必ずつけること（省略表記でよい）
+\\[\Cvs]
+\color{red}\bfseries
+※なお，日本人学生でもすべて英文で作成しても構わない．
+\color{black}\mdseries
+%
+% 飽きたので終了
+%
+\end{document}
+% EOF
